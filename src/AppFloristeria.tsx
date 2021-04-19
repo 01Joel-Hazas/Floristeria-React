@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+
 const herokuUrl = "https://dulces-petalos.herokuapp.com/api/product";
 
 function FloristeriaForm() {
@@ -58,9 +60,13 @@ function FloristeriaForm() {
               <p className="card-text">
                 <small className="text-muted">{flor["price"]}€</small>
               </p>
-              <a href="#" className="btn btn-primary">
-                DETALLES
-              </a>
+
+              <Link
+                to={{ pathname: "/DetallesFloristeria", state: { flor: flor } }}
+                className="btn btn-primary"
+              >
+                Detalles
+              </Link>
             </div>
           </div>
         </div>
@@ -96,9 +102,15 @@ function FloristeriaForm() {
                 <p className="card-text">
                   <small className="text-muted">{flor["price"]}€</small>
                 </p>
-                <a href="#" className="btn btn-primary">
-                  DETALLES
-                </a>
+                <Link
+                  to={{
+                    pathname: "/DetallesFloristeria",
+                    state: { flor: flor },
+                  }}
+                  className="btn btn-primary"
+                >
+                  Detalles
+                </Link>
               </div>
             </div>
           </div>
